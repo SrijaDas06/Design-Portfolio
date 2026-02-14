@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take@Look | Premium Event Design by Srija Das</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --burgundy: #4A0E0E;
+            --soft-cream: #f7eee4;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--soft-cream); color: #1a1a1a; overflow-x: hidden; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .bg-burgundy { background-color: var(--burgundy); }
+        .text-burgundy { color: var(--burgundy); }
+        .border-burgundy { border-color: var(--burgundy); }
+        
+        html { scroll-behavior: smooth; }
+
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(74, 14, 14, 0.1); }
+
+        .filter-btn.active { background-color: var(--burgundy); color: white; border-color: var(--burgundy); }
+
+        /* Modal / Lightbox Styles */
+        #lightbox-modal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; padding: 20px; }
+        #lightbox-modal.active { display: flex; }
+
+        .mandala-bg { opacity: 0.08; transform: rotate(0deg); animation: rotateMandala 120s linear infinite; }
+        @keyframes rotateMandala { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        /* Portfolio Centering Logic */
+        .portfolio-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
+        #portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 20px; box-sizing: border-box; justify-items: center; }
+        .project-card { max-width: 300px; border: 2px solid var(--burgundy); }
+        
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-tighter text-burgundy serif">Take@Look</div>
+            <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-medium">
+                <a href="#about" class="hover:text-burgundy transition">About</a>
+                <a href="#services" class="hover:text-burgundy transition">Services</a>
+                <a href="#portfolio" class="hover:text-burgundy transition">Portfolio</a>
+                <a href="#contact" class="hover:text-burgundy transition">Contact</a>
+            </div>
+            <button class="md:hidden" id="menu-btn"><i data-lucide="menu"></i></button>
+        </div>
+    </nav>
+
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&q=80" class="w-full h-full object-cover opacity-35">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#F9F7F5]"></div>
+        </div>
+        <div class="relative z-10 text-center px-6 max-w-4xl">
+            <h1 class="text-5xl md:text-7xl serif text-burgundy mb-6 leading-tight">Design That Speaks, <br>Moments That Shine.</h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-10 font-light tracking-wide uppercase">Elevating Your Events with Precision.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#portfolio" class="bg-burgundy text-white px-8 py-4 text-sm uppercase tracking-widest hover:bg-black transition duration-300">View Portfolio</a>
+                <a href="#contact" class="border border-burgundy text-burgundy px-8 py-4 text-sm uppercase tracking-widest hover:bg-burgundy hover:text-white transition duration-300">Let's Connect</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <div class="aspect-[1/1] bg-gray-200 overflow-hidden rounded-sm">
+                    <div class="w-full h-full bg-burgundy/10 flex items-center justify-center italic text-burgundy/40 p-12 text-center">
+                        <img src="public/SrijaDas_CSE_Formal.jpg" alt="">
+                    </div>
+                </div>
+                <div class="absolute -bottom-6 -right-6 w-48 h-48 border-2 border-burgundy/20 -z-10"></div>
+            </div>
+            <div>
+                <span class="text-burgundy uppercase tracking-[0.3em] text-xs font-bold mb-4 block">The Creative Director</span>
+                <h2 class="text-4xl serif mb-6">Srija Das</h2>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    As a <strong>B.Tech CSE student</strong>, I merge technical structure with refined aesthetics to create purposeful, professional design. My background shapes a disciplined approach where every detail is intentional and every layout communicates with clarity.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-8">
+                    Based in Kolkata, <span class="text-burgundy font-semibold">Take@Look</span> was built with a vision to deliver elevated visual storytelling for corporate and academic environments — designs that command attention while maintaining elegance and integrity.
+                </p>
+                <div class="grid grid-cols-2 gap-6 pt-6 border-t border-gray-100">
+                    <div><h4 class="font-bold text-burgundy">Kolkata, India</h4><p class="text-xs text-gray-500 uppercase">Location</p></div>
+                    <div><h4 class="font-bold text-burgundy">B.Tech CSE</h4><p class="text-xs text-gray-500 uppercase">Foundation</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 px-6 bg-[#F2EFED]">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="text-4xl serif mb-4">Core Specializations</h2>
+            <div class="w-20 h-1 bg-burgundy mx-auto"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-10 hover-lift border-t-4 border-burgundy">
+                <i data-lucide="layout" class="text-burgundy mb-6 w-10 h-10"></i>
+                <h3 class="text-xl font-bold mb-3">Event Posters</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">High-impact visual communication for seminars and conferences, designed to maximize attendee engagement and information clarity.</p>
+            </div>
+            <div class="bg-white p-10 hover-lift border-t-4 border-burgundy">
+                <i data-lucide="book-open" class="text-burgundy mb-6 w-10 h-10"></i>
+                <h3 class="text-xl font-bold mb-3">Brochures & Magazines</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Multi-page corporate documents that maintain brand consistency while presenting complex information in an elegant, readable format.</p>
+            </div>
+            <div class="bg-white p-10 hover-lift border-t-4 border-burgundy">
+                <i data-lucide="monitor" class="text-burgundy mb-6 w-10 h-10"></i>
+                <h3 class="text-xl font-bold mb-3">Stage & Backdrops</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Large-scale environmental graphics for stage screens and physical backdrops, optimized for photography and professional lighting.</p>
+            </div>
+            <div class="bg-white p-10 hover-lift border-t-4 border-burgundy">
+                <i data-lucide="mail" class="text-burgundy mb-6 w-10 h-10"></i>
+                <h3 class="text-xl font-bold mb-3">Invitation Suites</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Bespoke physical and digital invitations for VIP corporate gatherings, focusing on luxury textures and elegant typography.</p>
+            </div>
+            <div class="bg-white p-10 hover-lift border-t-4 border-burgundy">
+                <i data-lucide="briefcase" class="text-burgundy mb-6 w-10 h-10"></i>
+                <h3 class="text-xl font-bold mb-3">Corporate Branding</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Comprehensive visual identity packages including business cards, letterheads, and brand guidelines for event-specific sub-brands.</p>
+            </div>
+            <div class="bg-white p-10 hover-lift border-t-4 border-burgundy">
+                <i data-lucide="megaphone" class="text-burgundy mb-6 w-10 h-10"></i>
+                <h3 class="text-xl font-bold mb-3">Marketing Materials</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Flyers and social media assets that maintain a premium feel while driving registration and institutional awareness.</p>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio" class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto portfolio-container">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl serif mb-2">Curated Portfolio</h2>
+            <p class="text-gray-500 mb-8">A selection of recent corporate and institutional projects.</p>
+            <div class="flex flex-wrap gap-4 justify-center text-xs uppercase tracking-widest font-bold">
+                <button class="filter-btn active border px-4 py-2" onclick="filter(event,'all')">All</button>
+                <button class="filter-btn border px-4 py-2" onclick="filter(event,'posters')">Posters (6)</button>
+                <button class="filter-btn border px-4 py-2" onclick="filter(event,'brochures')">Brochures (3)</button>
+                <button class="filter-btn border px-4 py-2" onclick="filter(event,'magazines')">Magazines (5)</button>
+
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full" id="portfolio-grid">
+            <script>
+                // 1. POSTERS (Assumes files: poster1.jpg, poster2.jpg...)
+                for(let i=1; i<=6; i++){
+                    document.write(`
+                    <div class="project-card posters group relative cursor-pointer" onclick="openMedia('image', 'public/poster${i}.png')">
+                        <div class="aspect-[3/4] overflow-hidden bg-gray-100">
+                            <img src="public/poster${i}.png" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/300x400?text=Poster+${i}'">
+                            <div class="absolute inset-0 bg-burgundy/80 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-6">
+                                <h3 class="text-xl serif">Event Poster ${i}</h3>
+                            </div>
+                        </div>
+                    </div>`);
+                }
+
+                // 2. BROCHURES
+                for(let i=1; i<=3; i++){
+                    document.write(`
+                    <div class="project-card brochures group relative cursor-pointer" onclick="openMedia('pdf', 'public/brochure${i}.pdf')">
+                        <div class="aspect-[3/4] overflow-hidden bg-gray-100">
+                            <img src="public/brochure${i}.png" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-burgundy/80 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-6">
+                                <h3 class="text-xl serif">Brochure ${i}</h3>
+                                <p class="text-xs mt-2 uppercase tracking-widest">Click to Open PDF</p>
+                            </div>
+                        </div>
+                    </div>`);
+                }
+
+                // 3. MAGAZINES
+                for(let i=1; i<=5; i++){
+                    document.write(`
+                    <div class="project-card magazines group relative cursor-pointer" onclick="openMedia('pdf', 'public/magazine${i}.pdf')">
+                        <div class="aspect-[3/4] overflow-hidden bg-gray-100">
+                            <img src="public/magazine${i}.png" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-burgundy/80 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-6">
+                                <h3 class="text-xl serif">Magazine ${i}</h3>
+                                <p class="text-xs mt-2 uppercase tracking-widest">Click to Open PDF</p>
+                            </div>
+                        </div>
+                    </div>`);
+                }
+            </script>
+        </div>
+    </div>
+</section>
+     <section class="py-24 px-6 bg-burgundy text-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+            <div>
+                <h4 class="text-3xl serif mb-2">100%</h4>
+                <p class="text-burgundy-200 text-xs uppercase tracking-widest opacity-70">Deadline Accuracy</p>
+            </div>
+            <div>
+                <h4 class="text-3xl serif mb-2">Consistent</h4>
+                <p class="text-burgundy-200 text-xs uppercase tracking-widest opacity-70">Visual Identity</p>
+            </div>
+            <div>
+                <h4 class="text-3xl serif mb-2">Technical</h4>
+                <p class="text-burgundy-200 text-xs uppercase tracking-widest opacity-70">Design Thinking</p>
+            </div>
+            <div>
+                <h4 class="text-3xl serif mb-2">Precision</h4>
+                <p class="text-burgundy-200 text-xs uppercase tracking-widest opacity-70">Detail Oriented</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-24 px-6 bg-white border-t border-gray-100 relative overflow-hidden">
+        <div class="absolute right-[-120px] top-[-100px] w-[600px] h-[600px] hidden lg:block pointer-events-none">
+            <svg class="mandala-bg w-full h-full text-burgundy" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="0.2"/>
+                <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="0.1"/>
+                <path d="M50 5 L55 45 L95 50 L55 55 L50 95 L45 55 L5 50 L45 45 Z" fill="none" stroke="currentColor" stroke-width="0.2"/>
+                <path d="M15 15 L45 45 M85 15 L55 45 M85 85 L55 55 M15 85 L45 55" stroke="currentColor" stroke-width="0.2"/>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 relative z-10">
+            <div>
+                <h2 class="text-5xl md:text-6xl serif text-burgundy mb-6">Let's connect!</h2>
+                <p class="text-gray-600 mb-10 max-w-md">Ready to elevate your next corporate or institutional event? Reach out to discuss your requirements.</p>
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <i data-lucide="mail" class="text-burgundy"></i>
+                        <span class="font-medium text-lg">srijaadas12@gmail.com</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <i data-lucide="phone" class="text-burgundy"></i>
+                        <span class="font-medium text-lg">+91-9836433226</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <i data-lucide="map-pin" class="text-burgundy"></i>
+                        <span class="font-medium">Kolkata, India</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-24 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400 uppercase tracking-widest">
+            <div class="text-xl font-bold text-burgundy serif normal-case tracking-normal">Take@Look</div>
+            <p>© 2025 Srija Das. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="lightbox-modal" onclick="this.classList.remove('active')">
+        <button class="absolute top-10 right-10 text-white"><i data-lucide="x" class="w-10 h-10"></i></button>
+        <div class="w-full max-w-5xl h-[80vh] bg-white rounded flex items-center justify-center overflow-hidden" onclick="event.stopPropagation()">
+            <div id="lightbox-content" class="w-full h-full flex items-center justify-center bg-gray-50"></div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        function filter(e, category) {
+            const items = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            e.target.classList.add('active');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                item.style.display = 'none';
+                }
+            });
+        }
+
+
+        function openMedia(type, src) {
+            const modal = document.getElementById('lightbox-modal');
+            const content = document.getElementById('lightbox-content');
+            if (type === 'pdf') {
+                content.innerHTML = `<iframe src="${src}" class="w-full h-full" style="border: none;"></iframe>`;
+            } else {
+                content.innerHTML = `<img src="${src}" class="max-h-full max-w-full object-contain">`;
+            }
+            modal.classList.add('active');
+        }
+    </script>
+</body>
+</html>
