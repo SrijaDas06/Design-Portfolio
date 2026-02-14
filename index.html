@@ -125,9 +125,9 @@
                 // 1. POSTERS (Assumes files: poster1.jpg, poster2.jpg...)
                 for(let i=1; i<=6; i++){
                     document.write(`
-                    <div class="project-card posters group relative cursor-pointer" onclick="openMedia('image', 'public/poster${i}.png')">
+                    <div class="project-card posters group relative cursor-pointer" onclick="openMedia('image', 'images/poster${i}.png')">
                         <div class="aspect-[3/4] overflow-hidden bg-gray-100">
-                            <img src="public/poster${i}.png" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/300x400?text=Poster+${i}'">
+                            <img src="images/poster${i}.png" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/300x400?text=Poster+${i}'">
                             <div class="absolute inset-0 bg-burgundy/80 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-6">
                                 <h3 class="text-xl serif">Event Poster ${i}</h3>
                             </div>
@@ -138,9 +138,9 @@
                 // 2. BROCHURES
                 for(let i=1; i<=3; i++){
                     document.write(`
-                    <div class="project-card brochures group relative cursor-pointer" onclick="openMedia('pdf', 'public/brochure${i}.pdf')">
+                    <div class="project-card brochures group relative cursor-pointer" onclick="openMedia('pdf', 'images/brochure${i}.pdf')">
                         <div class="aspect-[3/4] overflow-hidden bg-gray-100">
-                            <img src="public/brochure${i}.png" class="w-full h-full object-cover">
+                            <img src="images/brochure${i}.png" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-burgundy/80 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-6">
                                 <h3 class="text-xl serif">Brochure ${i}</h3>
                                 <p class="text-xs mt-2 uppercase tracking-widest">Click to Open PDF</p>
@@ -152,9 +152,9 @@
                 // 3. MAGAZINES
                 for(let i=1; i<=5; i++){
                     document.write(`
-                    <div class="project-card magazines group relative cursor-pointer" onclick="openMedia('pdf', 'public/magazine${i}.pdf')">
+                    <div class="project-card magazines group relative cursor-pointer" onclick="openMedia('pdf', 'images/magazine${i}.pdf')">
                         <div class="aspect-[3/4] overflow-hidden bg-gray-100">
-                            <img src="public/magazine${i}.png" class="w-full h-full object-cover">
+                            <img src="images/magazine${i}.png" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-burgundy/80 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-white p-6">
                                 <h3 class="text-xl serif">Magazine ${i}</h3>
                                 <p class="text-xs mt-2 uppercase tracking-widest">Click to Open PDF</p>
